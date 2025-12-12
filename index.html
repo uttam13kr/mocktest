@@ -2,20 +2,26 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Online Mock Test</title>
-<link rel="stylesheet" href="styles.css">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <div class="wrap">
     <header class="card">
       <div>
+        <!-- Test Title -->
         <h1 id="title">Loading Test...</h1>
+
+        <!-- Subtitle (auto-updated by JS file) -->
         <div id="subtitle" style="color:var(--muted);font-size:13px;margin-top:6px">
           Please wait...
         </div>
       </div>
+
       <div class="meta">
         <div class="qcount" id="qProgress">Question 0 of 0</div>
         <div class="timer" id="timer">00:00</div>
@@ -24,7 +30,11 @@
 
     <main class="card" id="card">
       <div class="qcount" id="topicName"></div>
+
+      <!-- Question -->
       <div class="question" id="question">Loading...</div>
+
+      <!-- Options -->
       <div class="options" id="options"></div>
 
       <div class="nav">
@@ -38,20 +48,23 @@
       <div id="reviewArea" class="review"></div>
     </main>
 
-    <footer id="footerText">Mock Test System</footer>
+    <footer id="footerText">Online Mock Test System</footer>
   </div>
 
+<!-- ================================
+    LOAD TEST JS DYNAMICALLY
+================================== -->
 <script>
-// Load JS file dynamically from URL parameter
 const urlParams = new URLSearchParams(window.location.search);
 const jsFile = urlParams.get("js");
 
 if (!jsFile) {
-  alert("❗ No test file provided.\nUse: index.html?js=YourTest.js");
+  alert("❗ No test file provided.\nUse URL format:\nindex.html?js=YourTestFile.js");
 } else {
   const script = document.createElement("script");
-  script.src = jsFile;
-  script.onload = () => console.log("Test loaded:", jsFile);
+  script.src = jsFile + "?v=" + Date.now();  // prevents caching
+  script.onload = () => console.log("Loaded Test File:", jsFile);
+  script.onerror = () => alert("❌ Error loading test file: " + jsFile);
   document.body.appendChild(script);
 }
 </script>
