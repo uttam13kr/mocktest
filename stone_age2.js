@@ -321,34 +321,16 @@ const quizData = [
    COPY EVERYTHING FROM HERE ONWARD WITHOUT CHANGING ANYTHING
 ============================================================ */
 
-// Shuffle helper function
-function shuffleArray(arr){
-  for(let i = arr.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-}
 
-// Set header text
+// Apply title and subtitles to HTML
 document.getElementById("title").innerText = TEST_TITLE;
 document.getElementById("subtitle").innerText = SUBTITLE_TEXT;
 document.getElementById("topicName").innerText = TOPIC_NAME;
 
-// Shuffle questions
-shuffleArray(quizData);
-
-// Shuffle options inside each question
-quizData.forEach(q => {
-  const mapped = q.a.map((text, index) => ({ text, index }));
-  shuffleArray(mapped);
-  q.a = mapped.map(o => o.text);
-  q.correct = mapped.findIndex(o => o.index === q.correct);
-});
-
-// Engine variables
 let current = 0;
 const total = quizData.length;
 let answers = new Array(total).fill(null);
+
 let totalSeconds = TIME_LIMIT_MINUTES * 60;
 let timerInterval = null;
 
@@ -356,7 +338,6 @@ let timerInterval = null;
 const qEl = document.getElementById('question');
 const optsEl = document.getElementById('options');
 const qProgress = document.getElementById('qProgress');
-const subtle = document.getElementById('subtitle');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const submitBtn = document.getElementById('submitBtn');
@@ -378,17 +359,22 @@ function renderQuestion(index){
     const id = `opt-${index}-${i}`;
     const wrap = document.createElement("label");
     wrap.className = "opt";
+
     wrap.innerHTML = `
       <input type="radio" name="option" id="${id}" value="${i}"
       ${answers[index] === i ? "checked" : ""}>
-      <div style="flex:1"><strong>${String.fromCharCode(65+i)}.</strong>
-      <span>${text}</span></div>
+      <div style="flex:1">
+        <strong>${String.fromCharCode(65+i)}.</strong>
+        <span>${text}</span>
+      </div>
     `;
+
     wrap.addEventListener("click",()=>{
       answers[index] = i;
       if(index < total - 1) renderQuestion(index + 1);
       else showEndPrompt();
     });
+
     optsEl.appendChild(wrap);
   });
 
@@ -397,21 +383,22 @@ function renderQuestion(index){
   submitBtn.style.display = index === total - 1 ? "inline-block" : "none";
 }
 
-prevBtn.addEventListener("click",()=>current>0 && renderQuestion(current-1));
-nextBtn.addEventListener("click",()=>current<total-1 && renderQuestion(current+1));
+prevBtn.addEventListener("click",()=> current > 0 && renderQuestion(current - 1));
+nextBtn.addEventListener("click",()=> current < total - 1 && renderQuestion(current + 1));
 submitBtn.addEventListener("click", submitQuiz);
 
-// Last question prompt
+// Last question notice
 function showEndPrompt(){
   resultArea.innerHTML = `
     <div class="result">
-      <strong>You reached the last question.</strong>
-      <br><button id="finishNow">Submit Test</button>
-    </div>`;
+      <strong>You reached the last question.</strong><br>
+      <button id="finishNow">Submit Test</button>
+    </div>
+  `;
   document.getElementById("finishNow").addEventListener("click", submitQuiz);
 }
 
-// Timer functions
+// Timer logic
 function startTimer(){
   updateTimer();
   timerInterval = setInterval(()=>{
@@ -423,14 +410,15 @@ function startTimer(){
     updateTimer();
   },1000);
 }
+
 function updateTimer(){
   const m = Math.floor(totalSeconds / 60);
   const s = totalSeconds % 60;
-  timerDisplay.textContent =
+  timerDisplay.textContent = 
     `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 
-// Submit quiz
+// Submit test
 function submitQuiz(auto=false){
   if(timerInterval) clearInterval(timerInterval);
 
@@ -449,20 +437,23 @@ function submitQuiz(auto=false){
       <p>Incorrect: ${incorrect}</p>
       <p><strong>Score: ${percent}%</strong></p>
       <button id="showReviewBtn">Show Detailed Review</button>
-    </div>`;
-  
+    </div>
+  `;
+
   document.getElementById("showReviewBtn").addEventListener("click", showReview);
 }
 
-// Review section
+// Review panel
 function showReview(){
   reviewArea.innerHTML = `<h3>Detailed Review</h3>`;
 
   quizData.forEach((item,i)=>{
     const user = answers[i];
     const div = document.createElement("div");
+
     div.className = "item";
-    div.style.background = user === item.correct ? "var(--correct)" : "var(--incorrect)";
+    div.style.background = 
+      user === item.correct ? "var(--correct)" : "var(--incorrect)";
 
     div.innerHTML = `
       <strong>Q${i+1}:</strong> ${item.q}<br>
@@ -470,10 +461,10 @@ function showReview(){
       Correct answer: <strong>${item.a[item.correct]}</strong><br>
       <em>Explanation:</em> ${item.explanation}<br><br>
     `;
+
     reviewArea.appendChild(div);
   });
 }
 
-// Start system
 renderQuestion(0);
 startTimer();
