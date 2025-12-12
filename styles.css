@@ -1,0 +1,43 @@
+:root{
+  --bg:#f4f8fb; --card:#fff; --accent:#2b7a78; --muted:#6b7280;
+  --correct:#e6ffef; --incorrect:#fff0f0; --green:#1b7a41; --red:#b91c1c;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--bg);color:#0f172a;display:flex;justify-content:center;padding:24px;
+}
+.wrap{width:100%;max-width:900px}
+header.card{
+  background:var(--card);border-radius:12px;padding:18px 20px;margin-bottom:14px;
+  box-shadow:0 6px 20px rgba(15,23,42,0.06);display:flex;align-items:center;gap:16px;
+  flex-wrap:wrap;
+}
+header h1{margin:0;font-size:20px;color:var(--accent)}
+.meta{margin-left:auto;text-align:right}
+.timer{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;font-weight:600}
+.card{
+  background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(15,23,42,0.06);
+}
+.qcount{font-size:13px;color:var(--muted);margin-bottom:8px}
+.question{font-size:18px;font-weight:600;margin-bottom:12px}
+.options{display:flex;flex-direction:column;gap:8px}
+.opt{
+  display:flex;align-items:center;gap:12px;padding:10px;border-radius:10px;border:1px solid #e6eef2;
+  cursor:pointer;transition:all .12s;background:linear-gradient(180deg,#fff,#fbfdff);
+}
+.opt:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(11,22,39,0.04)}
+.opt input{appearance:none;width:18px;height:18px;border-radius:50%;border:2px solid #cbd5e1;display:inline-block;flex:0 0 18px}
+.opt input:checked{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px rgba(43,122,120,0.08)}
+.nav{display:flex;justify-content:space-between;margin-top:16px;gap:12px}
+button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600}
+button:disabled{opacity:.5;cursor:default}
+.small{background:transparent;color:var(--accent);border:1px solid #dfe7ea;padding:8px 12px}
+.result{margin-top:16px;padding:14px;border-radius:8px;background:#fbfdff;border:1px solid #e7f3f3}
+.review{margin-top:18px}
+.review .item{padding:12px;border-radius:10px;margin-bottom:10px;border:1px solid #e9eef1;background:#fff}
+.pill{padding:8px 10px;border-radius:8px;background:#f0f9f4;color:var(--green);font-weight:700}
+.wrong-pill{background:#fff4f4;color:var(--red)}
+.review .correct{color:var(--green);font-weight:700}
+.review .incorrect{color:var(--red);font-weight:700}
+footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
