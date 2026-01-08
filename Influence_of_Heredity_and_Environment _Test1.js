@@ -1,323 +1,327 @@
 /* ============================================================
-   TEST 1 : INFLUENCE OF HEREDITY AND ENVIRONMENT
-   Subject: Child Development & Pedagogy (CTET)
-   Time: 20 Minutes | Questions: 25
-   NOTE: DO NOT ADD QUESTION NUMBERS
+   INFLUENCE OF HEREDITY AND ENVIRONMENT — TEST 1
+   QUESTIONS: 25
+   TIME: 20 MINUTES
+   LANGUAGE: ENGLISH ONLY
 ============================================================ */
 
-// ✔ TEST TITLE
+// TEST SETTINGS
 const TEST_TITLE = "Influence of Heredity and Environment – Test 1";
-
-// ✔ TIME LIMIT
+const SUBTITLE_TEXT = "Child Development & Pedagogy";
+const TOPIC_NAME = "Influence of Heredity and Environment";
 const TIME_LIMIT_MINUTES = 20;
 
-// ✔ QUIZ QUESTIONS
+// QUESTIONS DATA
 const quizData = [
 
 {
-  question: "Heredity refers to the transmission of traits from",
-  options: [
-    "Teachers to students",
-    "Parents to children",
-    "Society to individual",
-    "School to child"
-  ],
-  answer: "Parents to children",
-  explanation: "Heredity means the transfer of genetic traits from parents to their children."
+q: "Heredity refers to the transmission of traits from",
+a: [
+"Teachers to students",
+"Parents to children",
+"Society to individual",
+"School to child"
+],
+correct: 1,
+explanation: "Heredity means the transfer of genetic traits from parents to their children."
 },
 
 {
-  question: "Which of the following is mainly determined by heredity?",
-  options: [
-    "Language spoken",
-    "Religious belief",
-    "Colour of eyes",
-    "Moral values"
-  ],
-  answer: "Colour of eyes",
-  explanation: "Eye colour is a physical trait inherited through genes."
+q: "Which of the following is mainly determined by heredity?",
+a: [
+"Language spoken",
+"Religious belief",
+"Colour of eyes",
+"Moral values"
+],
+correct: 2,
+explanation: "Eye colour is a physical trait inherited through genes."
 },
 
 {
-  question: "Variation among individuals occurs mainly because",
-  options: [
-    "All children get same genes",
-    "Environment is same for all",
-    "Combination of genes differs",
-    "Education is same"
-  ],
-  answer: "Combination of genes differs",
-  explanation: "Each child receives a unique combination of genes, causing variation."
+q: "Variation among individuals occurs mainly because",
+a: [
+"All children get same genes",
+"Environment is same for all",
+"Combination of genes differs",
+"Education is same"
+],
+correct: 2,
+explanation: "Each child receives a unique combination of genes, causing variation."
 },
 
 {
-  question: "According to HH Goddard, intelligence is",
-  options: [
-    "Entirely environmental",
-    "Entirely learned",
-    "Inherited from parents",
-    "Independent of heredity"
-  ],
-  answer: "Inherited from parents",
-  explanation: "HH Goddard believed intelligence is largely inherited."
+q: "According to HH Goddard, intelligence is",
+a: [
+"Entirely environmental",
+"Entirely learned",
+"Inherited from parents",
+"Independent of heredity"
+],
+correct: 2,
+explanation: "HH Goddard believed intelligence is largely inherited."
 },
 
 {
-  question: "Temperament of a child is mainly influenced by",
-  options: [
-    "School environment",
-    "Peer group",
-    "Heredity",
-    "Curriculum"
-  ],
-  answer: "Heredity",
-  explanation: "Temperament is mostly inborn and seen from birth."
+q: "Temperament of a child is mainly influenced by",
+a: [
+"School environment",
+"Peer group",
+"Heredity",
+"Curriculum"
+],
+correct: 2,
+explanation: "Temperament is mostly inborn and seen from birth."
 },
 
 {
-  question: "Which development is most affected by environment?",
-  options: [
-    "Height",
-    "Eye colour",
-    "Personality",
-    "Blood group"
-  ],
-  answer: "Personality",
-  explanation: "Personality develops largely due to environmental influences."
+q: "Which development is most affected by environment?",
+a: [
+"Height",
+"Eye colour",
+"Personality",
+"Blood group"
+],
+correct: 2,
+explanation: "Personality develops largely due to environmental influences."
 },
 
 {
-  question: "Environment refers to",
-  options: [
-    "Only physical surroundings",
-    "Only social factors",
-    "Everything surrounding the individual",
-    "Only school atmosphere"
-  ],
-  answer: "Everything surrounding the individual",
-  explanation: "Environment includes physical, social and cultural surroundings."
+q: "Environment refers to",
+a: [
+"Only physical surroundings",
+"Only social factors",
+"Everything surrounding the individual",
+"Only school atmosphere"
+],
+correct: 2,
+explanation: "Environment includes physical, social and cultural surroundings."
 },
 
 {
-  question: "Who defined environment as anything immediately surrounding an object?",
-  options: [
-    "Ann Nastase",
-    "Gisbert",
-    "John Locke",
-    "Plato"
-  ],
-  answer: "Gisbert",
-  explanation: "Gisbert defined environment as immediate surroundings influencing an object."
+q: "Who defined environment as anything immediately surrounding an object?",
+a: [
+"Ann Nastase",
+"Gisbert",
+"John Locke",
+"Plato"
+],
+correct: 1,
+explanation: "Gisbert defined environment as immediate surroundings influencing an object."
 },
 
 {
-  question: "Which trait is least influenced by heredity?",
-  options: [
-    "Height",
-    "Intelligence potential",
-    "Language spoken",
-    "Eye colour"
-  ],
-  answer: "Language spoken",
-  explanation: "Language is learned from environment, not inherited."
+q: "Which trait is least influenced by heredity?",
+a: [
+"Height",
+"Intelligence potential",
+"Language spoken",
+"Eye colour"
+],
+correct: 2,
+explanation: "Language is learned from environment, not inherited."
 },
 
 {
-  question: "Heredity mainly provides",
-  options: [
-    "Final behaviour",
-    "Learning experiences",
-    "Potential abilities",
-    "Social skills"
-  ],
-  answer: "Potential abilities",
-  explanation: "Heredity provides potential which environment helps to develop."
+q: "Heredity mainly provides",
+a: [
+"Final behaviour",
+"Learning experiences",
+"Potential abilities",
+"Social skills"
+],
+correct: 2,
+explanation: "Heredity provides potential which environment helps to develop."
 },
 
 {
-  question: "Which of the following best explains maturation?",
-  options: [
-    "Learning through practice",
-    "Development due to experience",
-    "Biological readiness",
-    "Social interaction"
-  ],
-  answer: "Biological readiness",
-  explanation: "Maturation refers to development guided by heredity."
+q: "Which of the following best explains maturation?",
+a: [
+"Learning through practice",
+"Development due to experience",
+"Biological readiness",
+"Social interaction"
+],
+correct: 2,
+explanation: "Maturation refers to development guided by heredity."
 },
 
 {
-  question: "Children raised in deprived environments may show",
-  options: [
-    "Better intelligence",
-    "Delayed mental growth",
-    "Faster maturation",
-    "No effect at all"
-  ],
-  answer: "Delayed mental growth",
-  explanation: "Poor environment hampers mental development."
+q: "Children raised in deprived environments may show",
+a: [
+"Better intelligence",
+"Delayed mental growth",
+"Faster maturation",
+"No effect at all"
+],
+correct: 1,
+explanation: "Poor environment hampers mental development."
 },
 
 {
-  question: "Which example supports the role of environment?",
-  options: [
-    "Eye colour of child",
-    "Blood group",
-    "Feral child unable to speak",
-    "Fingerprint pattern"
-  ],
-  answer: "Feral child unable to speak",
-  explanation: "Lack of human environment affected language development."
+q: "Which example supports the role of environment?",
+a: [
+"Eye colour of child",
+"Blood group",
+"Feral child unable to speak",
+"Fingerprint pattern"
+],
+correct: 2,
+explanation: "Lack of human environment affected language development."
 },
 
 {
-  question: "Nature refers to",
-  options: [
-    "Upbringing",
-    "Schooling",
-    "Genetic inheritance",
-    "Culture"
-  ],
-  answer: "Genetic inheritance",
-  explanation: "Nature means traits inherited from parents."
+q: "Nature refers to",
+a: [
+"Upbringing",
+"Schooling",
+"Genetic inheritance",
+"Culture"
+],
+correct: 2,
+explanation: "Nature means traits inherited from parents."
 },
 
 {
-  question: "Nurture refers to",
-  options: [
-    "Genes only",
-    "Inherited traits",
-    "Environment and upbringing",
-    "Blood group"
-  ],
-  answer: "Environment and upbringing",
-  explanation: "Nurture includes environment, education and experiences."
+q: "Nurture refers to",
+a: [
+"Genes only",
+"Inherited traits",
+"Environment and upbringing",
+"Blood group"
+],
+correct: 2,
+explanation: "Nurture includes environment, education and experiences."
 },
 
 {
-  question: "John Locke believed that the child’s mind is",
-  options: [
-    "Genetically fixed",
-    "A blank slate",
-    "Fully developed at birth",
-    "Unaffected by experience"
-  ],
-  answer: "A blank slate",
-  explanation: "John Locke believed knowledge comes from experience."
+q: "John Locke believed that the child’s mind is",
+a: [
+"Genetically fixed",
+"A blank slate",
+"Fully developed at birth",
+"Unaffected by experience"
+],
+correct: 1,
+explanation: "John Locke believed knowledge comes from experience."
 },
 
 {
-  question: "Which statement is correct?",
-  options: [
-    "Only heredity affects development",
-    "Only environment affects development",
-    "Both heredity and environment influence development",
-    "Neither heredity nor environment matter"
-  ],
-  answer: "Both heredity and environment influence development",
-  explanation: "Development is a result of interaction between heredity and environment."
+q: "Which statement is correct?",
+a: [
+"Only heredity affects development",
+"Only environment affects development",
+"Both heredity and environment influence development",
+"Neither heredity nor environment matter"
+],
+correct: 2,
+explanation: "Development is a result of interaction between heredity and environment."
 },
 
 {
-  question: "Physical development like walking depends mainly on",
-  options: [
-    "Teaching",
-    "Maturation",
-    "Peer group",
-    "Discipline"
-  ],
-  answer: "Maturation",
-  explanation: "Walking develops when the child is biologically ready."
+q: "Physical development like walking depends mainly on",
+a: [
+"Teaching",
+"Maturation",
+"Peer group",
+"Discipline"
+],
+correct: 1,
+explanation: "Walking develops when the child is biologically ready."
 },
 
 {
-  question: "Which factor is hereditary?",
-  options: [
-    "Attitude",
-    "Interest",
-    "Blood group",
-    "Language"
-  ],
-  answer: "Blood group",
-  explanation: "Blood group is determined genetically."
+q: "Which factor is hereditary?",
+a: [
+"Attitude",
+"Interest",
+"Blood group",
+"Language"
+],
+correct: 2,
+explanation: "Blood group is determined genetically."
 },
 
 {
-  question: "Personality can be improved mainly through",
-  options: [
-    "Genes",
-    "Environment",
-    "Chromosomes",
-    "Hormones"
-  ],
-  answer: "Environment",
-  explanation: "Environment plays a major role in shaping personality."
+q: "Personality can be improved mainly through",
+a: [
+"Genes",
+"Environment",
+"Chromosomes",
+"Hormones"
+],
+correct: 1,
+explanation: "Environment plays a major role in shaping personality."
 },
 
 {
-  question: "Why do siblings differ from each other?",
-  options: [
-    "Same genes",
-    "Different environments only",
-    "Different gene combinations",
-    "Same upbringing"
-  ],
-  answer: "Different gene combinations",
-  explanation: "Each child inherits a unique combination of genes."
+q: "Why do siblings differ from each other?",
+a: [
+"Same genes",
+"Different environments only",
+"Different gene combinations",
+"Same upbringing"
+],
+correct: 2,
+explanation: "Each child inherits a unique combination of genes."
 },
 
 {
-  question: "Which is an environmental factor?",
-  options: [
-    "Eye colour",
-    "Blood type",
-    "Family atmosphere",
-    "Height potential"
-  ],
-  answer: "Family atmosphere",
-  explanation: "Family atmosphere is part of environment."
+q: "Which is an environmental factor?",
+a: [
+"Eye colour",
+"Blood type",
+"Family atmosphere",
+"Height potential"
+],
+correct: 2,
+explanation: "Family atmosphere is part of environment."
 },
 
 {
-  question: "Intelligence develops best when",
-  options: [
-    "Only heredity is strong",
-    "Only environment is rich",
-    "Both heredity and environment support",
-    "Neither heredity nor environment matter"
-  ],
-  answer: "Both heredity and environment support",
-  explanation: "Heredity provides potential and environment develops it."
+q: "Intelligence develops best when",
+a: [
+"Only heredity is strong",
+"Only environment is rich",
+"Both heredity and environment support",
+"Neither heredity nor environment matter"
+],
+correct: 2,
+explanation: "Heredity provides potential and environment develops it."
 },
 
 {
-  question: "Which statement about heredity is incorrect?",
-  options: [
-    "It determines potential",
-    "It affects maturation",
-    "It alone decides personality",
-    "It influences temperament"
-  ],
-  answer: "It alone decides personality",
-  explanation: "Personality is influenced more by environment."
+q: "Which statement about heredity is incorrect?",
+a: [
+"It determines potential",
+"It affects maturation",
+"It alone decides personality",
+"It influences temperament"
+],
+correct: 2,
+explanation: "Personality is influenced more by environment."
 },
 
 {
-  question: "The correct view about human development is",
-  options: [
-    "Nature dominates nurture",
-    "Nurture dominates nature",
-    "Both interact in development",
-    "Neither plays a role"
-  ],
-  answer: "Both interact in development",
-  explanation: "Human development results from interaction of nature and nurture."
+q: "The correct view about human development is",
+a: [
+"Nature dominates nurture",
+"Nurture dominates nature",
+"Both interact in development",
+"Neither plays a role"
+],
+correct: 2,
+explanation: "Human development results from interaction of nature and nurture."
 }
 
 ];
 
 /* ============================================================
-   END OF ALLOWED SECTION — QUIZ ENGINE CODE IS SKIPPED
+   END OF ALLOWED SECTION — DO NOT EDIT ANYTHING BELOW
+============================================================ */
+
+/* ============================================================
+   END OF ALLOWED SECTION — ENGINE CODE IS SKIPPED AS REQUESTED
 ============================================================ */
 
 
